@@ -33,7 +33,13 @@ def process_game():
     # update game_table with the image names if guessed correctly (add image names from answer_table)
     # update rol_col (remove row_col pairs that have been guessed already)
     # check if any more None in game_table (to see if all images have been guessed correctly)
+        # if so, redirect to /end_game
     return redirect("/game")
 
+@app.route("/end_game")
+def end_game():
+    global answer_table
+    return render_template("endgame.html", answer_table=answer_table)
+    
 if __name__ == "__main__":
     app.run(debug=True, port=7777)
