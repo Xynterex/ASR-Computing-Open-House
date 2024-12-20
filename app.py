@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 # create a list the 8 image file names (sch logo, 4 house mascots, stem cca, guitar ensemble, taekwondo)
 # will refer to the colours flask app from old computing task to style the table
-table = []
+answer_table = [] # table of the names of image files
+game_table = [] # table with 4 rows 4 cols of None data; to be processed by jinja during game
 
 @app.route("/")
 def lobby():
