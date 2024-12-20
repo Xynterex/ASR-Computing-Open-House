@@ -6,7 +6,7 @@ app = Flask(__name__)
 # will use them like <img src="{{ image_name }}"> to show the images
 # will refer to the colours flask app from old computing task to style the table
 
-answer_table = [] # table of the names of image files
+answer_table = [] # table of the names of image files, like the "answer key" that wouldn't get passed to frontend
 game_table = [] # table with 4 rows 4 cols of None data; to be processed by jinja during game
 tries = 0 # number of attempts at guessing
 row_col = [] # list storing
