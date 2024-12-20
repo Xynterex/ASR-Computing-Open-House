@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
 
 # create a list the 8 image file names (sch logo, 4 house mascots, stem cca, guitar ensemble, taekwondo)
+# will use them like <img src="{{ image_name }}"> to show the images
 # will refer to the colours flask app from old computing task to style the table
 
 answer_table = [] # table of the names of image files
