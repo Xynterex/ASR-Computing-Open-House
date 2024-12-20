@@ -12,28 +12,28 @@ row_col = [] # list storing
 
 @app.route("/")
 def lobby():
-  return render_template("lobby.html")
+    return render_template("lobby.html")
 
 @app.route("/game")
 def game():
-  global game_table
-  global row_col
-  return render_template("game.html", game_table=game_table, row_col=row_col)
+    global game_table
+    global row_col
+    return render_template("game.html", game_table=game_table, row_col=row_col)
 
 @app.route("/prep_game")
 def prep_game():
-  # extend image names list by itself and shuffle
-  # fill the list contents into 2d array for table display later
-  return redirect("/game")
+    # extend image names list by itself and shuffle
+    # fill the list contents into 2d array for table display later
+    return redirect("/game")
 
 @app.route("/process_game")
 def process_game():
-  # check for duplicate guesses
-  # check if both guesses are the same image names from answer_table
-  # update game_table with the image names if guessed correctly (add image names from answer_table)
-  # update rol_col (remove row_col pairs that have been guessed already)
-  # check if any more None in game_table (to see if all images have been guessed correctly)
-  return redirect("/game")
+    # check for duplicate guesses
+    # check if both guesses are the same image names from answer_table
+    # update game_table with the image names if guessed correctly (add image names from answer_table)
+    # update rol_col (remove row_col pairs that have been guessed already)
+    # check if any more None in game_table (to see if all images have been guessed correctly)
+    return redirect("/game")
 
 if __name__ == "__main__":
-  app.run(debug=True, port=7777)
+    app.run(debug=True, port=7777)
