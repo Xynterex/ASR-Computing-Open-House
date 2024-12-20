@@ -8,6 +8,7 @@ app = Flask(__name__)
 answer_table = [] # table of the names of image files
 game_table = [] # table with 4 rows 4 cols of None data; to be processed by jinja during game
 tries = 0 # number of attempts at guessing
+row_col = [] # list storing
 
 @app.route("/")
 def lobby():
@@ -16,7 +17,8 @@ def lobby():
 @app.route("/game")
 def game():
   global game_table
-  return render_template("game.html")
+  global row_col
+  return render_template("game.html", game_table=game_table, row_col=row_col)
 
 @app.route("/prep_game")
 def prep_game():
@@ -28,8 +30,9 @@ def prep_game():
 def process_game():
   # check for duplicate guesses
   # check if both guesses are the same image names from answer_table
-  # update game_table with the image names if guessed correctly
-  # jinja message 
+  # update game_table with the image names if guessed correctly (add image names from answer_table)
+  # update rol_col (remove row_col pairs that have been guessed already)
+  # check if any more None in game_table (to see if all images have been guessed correctly)
   return redirect("/game")
 
 if __name__ == "__main__":
