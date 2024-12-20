@@ -23,8 +23,8 @@ def game():
 
 @app.route("/prep_game")
 def prep_game():
-    # extend image names list by itself and shuffle
-    # fill the list contents into 2d array for table display later
+    # extend image names list by itself and shuffle (2 of each image names in the list)
+    # fill the list contents into answer_table (2d array)
     return redirect("/game")
 
 @app.route("/process_game")
