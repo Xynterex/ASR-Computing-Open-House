@@ -82,7 +82,7 @@ def process_game():
     if answer_table[row1][col1] == answer_table[row2][col2]: # guesses are the same
         # update game_table with the image names if guessed correctly (add image names from answer_table)
         game_table[row1][col1] = answer_table[row1][col1]
-        game_table[row1][col1] = answer_table[row2][col2]
+        game_table[row2][col2] = answer_table[row2][col2]
         
         # update rol_col (remove row_col pairs that have been guessed already)
         row_col.remove(guess1)
