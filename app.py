@@ -95,7 +95,7 @@ def process_game():
             return redirect("/game")
 
     # expose the cards if wrongly guessed
-    return redirect("/expose", row1=row1, col1=col1, row2=row2, col2=col2)
+    return redirect(url_for("expose", row1=row1, col1=col1, row2=row2, col2=col2))
 
 @app.route("/expose")
 def expose():
