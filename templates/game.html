@@ -5,6 +5,7 @@
     </head>
     <body>
         <!--
+        game_table
         render game_table variable to html table (with row and column header: A to D, 1 to 4)
             use jinja if statements check if table data is None
                 if none, just use color fill
@@ -13,5 +14,18 @@
             select items from row_col variable
         submit button directs to /process_game
         -->
+        <h2>Guess the coordinates of the two matching pairs!</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+            </tr>
+            {% for row in game_table %}
+                <th></th>
+            {% endfor %}
+        </table>
     </body>
 </html>
