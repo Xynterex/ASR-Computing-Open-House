@@ -62,6 +62,9 @@ def process_game():
     global game_table
     global answer_table
     global row_col
+    global tries
+
+    tries += 1
     
     guess1 = request.form.get("guess1")
     guess2 = request.form.get("guess2")
@@ -88,8 +91,24 @@ def process_game():
         if len(row_col) == 0:
             # if so, redirect to /end_game
             return redirect("/end_game")
-    else:
-        return redirect("/game")
+
+        # expose the cards
+        return redirect("/expose", row1=row1, col1=col1, row2=row2, col2=col2)
+
+@app.route("/expose")
+def expose():
+    global answer_table
+    row1 = request.args.get("row1")
+    col1 = request.args.get("col1")
+    row2 = request.args.get("row2")
+    col2 = request.args.get("col2")
+    
+    expose_table = [[None for i in range(4)] for j in range(4)]
+    
+    expose_table[row1][col1] = answer_table[row1][col1]
+    expose_table[row2][col2] = answer_table[row2][col2]
+
+    return render_template("expose.html", expose_table = expose_table)
 
 @app.route("/end_game")
 def end_game():
