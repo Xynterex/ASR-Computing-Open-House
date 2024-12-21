@@ -47,6 +47,12 @@ def prep_game():
 
     # fill None into game_table
     game_table = [[None for i in range(4)] for j in range(4)]
+
+    # row_col list
+    row_col = ["A1", "A2", "A3", "A4",
+               "B1", "B2", "B3", "B4",
+               "C1", "C2", "C3", "C4",
+               "D1", "D2", "D3", "D4"]
     
     return redirect("/game")
 
