@@ -58,15 +58,37 @@ def prep_game():
 
 @app.route("/process_game", methods=["POST"])
 def process_game():
+    global game_table
+    global answer_table
+    global row_col
+    
     guess1 = request.form.get("guess1")
     guess2 = request.form.get("guess2")
+
     # check for duplicate guesses
+    if guess1 == guess2:
+        return redirect("/game")
+
     # check if both guesses are the same image names from answer_table
-    # update game_table with the image names if guessed correctly (add image names from answer_table)
-    # update rol_col (remove row_col pairs that have been guessed already)
-    # check if any more None in game_table (to see if all images have been guessed correctly)
-        # if so, redirect to /end_game
-    return redirect("/game")
+    # obtain indexes of row and col
+    col1, row1= "ABCD".index(guess1[0]), int(guess1[1] - 1)
+    col2, row2= "ABCD".index(guess2[0]), int(guess2[1] - 1)
+
+    # check if both guesses are the same image names from answer_table
+    if answer_table[row1][col1] == answer_table[row2][col2]: # guesses are the same
+        # update game_table with the image names if guessed correctly (add image names from answer_table)
+        game_table[row1][col1] = answer_table[row1][col1]
+        game_table[row1][col1] = answer_table[row2][col2]
+        
+        # update rol_col (remove row_col pairs that have been guessed already)
+        row_col.remove(guess1)
+        row_col.remove(guess2)
+        # check if any more data in row_col
+        if len(row_col) == 0:
+            # if so, redirect to /end_game
+            return redirect("/end_game")
+    else:
+        return redirect("/game")
 
 @app.route("/end_game")
 def end_game():
