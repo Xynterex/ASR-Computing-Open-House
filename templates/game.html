@@ -26,6 +26,7 @@
                 <th>D</th>
             </tr>
             {% for i in range(4) %}
+            <tr>
                 <th>{{ i + 1 }}</th>
                 {% for j in range(4) %}
                     {% if game_table[i][j] == None %}
@@ -34,6 +35,7 @@
                         <img src="{{ game_table[i][j] }}" alt="{{ game_table[i][j] }}">
                     {% endif %}
                 {% endfor %}
+            </tr>
             {% endfor %}
         </table>
 
