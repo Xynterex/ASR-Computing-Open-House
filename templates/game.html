@@ -24,7 +24,7 @@
                 <th>D</th>
             </tr>
             {% for i in range(4) %}
-                <th>i + 1</th>
+                <th>{{ i + 1 }}</th>
                 {% for j in range(4) %}
                     {% if game_table[i][j] == None %}
                         <td></td> <!-- fill in a colour using css-->
