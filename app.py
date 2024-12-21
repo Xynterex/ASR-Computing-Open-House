@@ -100,10 +100,10 @@ def process_game():
 @app.route("/expose")
 def expose():
     global answer_table
-    row1 = request.args.get("row1")
-    col1 = request.args.get("col1")
-    row2 = request.args.get("row2")
-    col2 = request.args.get("col2")
+    row1 = int(request.args.get("row1"))
+    col1 = int(request.args.get("col1"))
+    row2 = int(request.args.get("row2"))
+    col2 = int(request.args.get("col2"))
     
     expose_table = [[None for i in range(4)] for j in range(4)]
     
