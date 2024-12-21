@@ -3,11 +3,16 @@
     <head>
         <meta charset="utf-8">
         <title>ASR Computing Open House</title>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     </head>
     <body>
         <!-- 
         form button to start playing
         redirect to /prep_game
         -->
+        <h1>Welcome to ASR Computing Open House!</h1>
+        <form action="/prep_game" method="GET">
+            <input type="submit" value="PLAY NOW!">
+        </form>
     </body>
 </html>
