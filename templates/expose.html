@@ -22,7 +22,7 @@
                     {% if expose_table[i][j] == None %}
                         <td></td> <!-- fill in a colour using css-->
                     {% else %}
-                        <img src="/static/{{ expose_table[i][j] }}" alt="{{ expose_table[i][j] }}">
+                        <td><img src="/static/{{ expose_table[i][j] }}" alt="{{ expose_table[i][j] }}"></td>
                     {% endif %}
                 {% endfor %}
             </tr>
