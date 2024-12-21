@@ -23,9 +23,30 @@
                 <th>C</th>
                 <th>D</th>
             </tr>
-            {% for row in game_table %}
-                <th></th>
+            {% for i in range(4) %}
+                <th>i + 1</th>
+                {% for j in range(4) %}
+                    {% if game_table[i][j] == None %}
+                        <td></td> <!-- fill in a colour -->
+                    {% else %}
+                        <img src="{{ game_table[i][j] }}" alt="{{ game_table[i][j] }}">
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         </table>
+
+        <!-- form to select coordinates guessed -->
+        <form action="/process_game" method="POST">
+            <table>
+                <tr> <!-- the labels -->
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr> <!-- the select tags -->
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
     </body>
 </html>
