@@ -56,8 +56,10 @@ def prep_game():
     
     return redirect("/game")
 
-@app.route("/process_game")
+@app.route("/process_game", methods=["POST"])
 def process_game():
+    guess1 = request.form.get("guess1")
+    guess2 = request.form.get("guess2")
     # check for duplicate guesses
     # check if both guesses are the same image names from answer_table
     # update game_table with the image names if guessed correctly (add image names from answer_table)
