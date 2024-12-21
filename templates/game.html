@@ -44,14 +44,14 @@
                 </tr>
                 <tr> <!-- the select tags -->
                     <td>
-                    <select id="guess1" name="guess1">
+                    <select id="guess1" name="guess1" required>
                         {% for coordinate in row_col %}
                         <option value="{{ coordinate }}">{{ coordinate }}</option>
                         {% endfor %}
                     </select>
                     </td>
                     <td>
-                    <select id="guess2" name="guess2">
+                    <select id="guess2" name="guess2" required>
                         {% for coordinate in row_col %}
                         <option value="{{ coordinate }}">{{ coordinate }}</option>
                         {% endfor %}
