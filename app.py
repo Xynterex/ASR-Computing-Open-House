@@ -37,6 +37,7 @@ def prep_game():
     # fill the list contents into answer_table (2d array)
     global answer_table
     global game_table
+    global row_col
 
     answer_list = image_names.copy() + image_names.copy()
     random.shuffle(answer_list)
