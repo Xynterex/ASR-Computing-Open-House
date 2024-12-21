@@ -19,7 +19,7 @@
             <tr>
                 <th>{{ i + 1 }}</th>
                 {% for j in range(4) %}
-                    {% if game_table[i][j] == None %}
+                    {% if expose_table[i][j] == None %}
                         <td></td> <!-- fill in a colour using css-->
                     {% else %}
                         <img src="/static/{{ expose_table[i][j] }}" alt="{{ expose_table[i][j] }}">
