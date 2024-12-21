@@ -6,6 +6,7 @@
         <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
     </head>
     <body>
+        <h2>The image positions are as shown</h2>
         <table>
             <tr>
                 <th></th>
@@ -27,5 +28,9 @@
             </tr>
             {% endfor %}
         </table>
+
+        <form action="/game" method="GET">
+            <input type="submit" value="Continue with Game">
+        </form>    
     </body>
 </html>
