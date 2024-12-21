@@ -72,8 +72,8 @@ def process_game():
 
     # check if both guesses are the same image names from answer_table
     # obtain indexes of row and col
-    col1, row1= "ABCD".index(guess1[0]), int(guess1[1] - 1)
-    col2, row2= "ABCD".index(guess2[0]), int(guess2[1] - 1)
+    col1, row1= "ABCD".index(guess1[0]), int(guess1[1]) - 1
+    col2, row2= "ABCD".index(guess2[0]), int(guess2[1]) - 1
 
     # check if both guesses are the same image names from answer_table
     if answer_table[row1][col1] == answer_table[row2][col2]: # guesses are the same
