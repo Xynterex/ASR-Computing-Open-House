@@ -63,6 +63,7 @@ def process_game():
 @app.route("/end_game")
 def end_game():
     global answer_table
+
     return render_template("endgame.html", answer_table=answer_table)
     
 if __name__ == "__main__":
