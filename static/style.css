@@ -1,3 +1,13 @@
+body {
+    font-family: "Segoe UI";
+    text-align: center;
+}
+
+table {
+    margin: 50px auto;
+    border: 1px solid black;
+}
+
 td, th {
 	border: 3px solid black;
 	width: 50px;
