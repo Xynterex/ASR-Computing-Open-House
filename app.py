@@ -91,9 +91,11 @@ def process_game():
         if len(row_col) == 0:
             # if so, redirect to /end_game
             return redirect("/end_game")
+        else:
+            return redirect("/game")
 
-        # expose the cards
-        return redirect("/expose", row1=row1, col1=col1, row2=row2, col2=col2)
+    # expose the cards if wrongly guessed
+    return redirect("/expose", row1=row1, col1=col1, row2=row2, col2=col2)
 
 @app.route("/expose")
 def expose():
