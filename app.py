@@ -119,8 +119,9 @@ def expose():
 @app.route("/end_game")
 def end_game():
     global answer_table
+    global tries
 
-    return render_template("endgame.html", answer_table=answer_table)
+    return render_template("endgame.html", answer_table=answer_table, tries=tries)
     
 if __name__ == "__main__":
     app.run(debug=True, port=7777)
