@@ -27,9 +27,13 @@ def lobby():
 
 @app.route("/game")
 def game():
+    global tries
     global game_table
     global row_col
-    return render_template("game.html", game_table=game_table, row_col=row_col)
+
+    tries += 1 # new turn
+    
+    return render_template("game.html", game_table=game_table, row_col=row_col, tries=tries)
 
 @app.route("/prep_game")
 def prep_game():
