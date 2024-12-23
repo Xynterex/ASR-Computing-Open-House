@@ -43,6 +43,7 @@ def prep_game():
     global tries
 
     tries = 0 # reset tries
+    answer_table = [] # reset answer_table
     answer_list = image_names.copy() + image_names.copy()
     random.shuffle(answer_list)
 
