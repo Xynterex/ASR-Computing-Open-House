@@ -8,6 +8,9 @@
     <body>
         <!-- render answer_table with congratulations amongus image -->
         <img id="amongus" src="/static/AMONG US.jpg" alt="AMONG US.jpg">
+
+        <h3>Ya'll took {{ tries }} tries!</h3>
+        
         <table>
             <tr>
                 <th></th>
@@ -25,8 +28,6 @@
             </tr>
             {% endfor %}
         </table>
-
-        <h3>Ya'll took {{ tries }} tries!</h3>
         
         <!-- form with button to redirect back to "/" route for another round of game yay-->
         <form action="/" method="GET">
