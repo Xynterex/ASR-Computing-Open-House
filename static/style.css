@@ -1,6 +1,7 @@
 body {
     font-family: "Segoe UI";
     text-align: center;
+	background-color: #FFF1DC;
 }
 
 table {
@@ -25,6 +26,14 @@ td {
 img {
 	width: 50px;
 	height: 50px;
+}
+
+input {
+	border-style: round;
+	border-color: black;
+	border-radius: 10px;
+	font-size: calc(0.5vw + 2vh);
+	width: calc(15vw + 10vh);
 }
 
 select {
