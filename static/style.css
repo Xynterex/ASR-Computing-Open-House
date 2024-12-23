@@ -37,13 +37,13 @@ input {
 }
 
 select {
-  background-color: teal;
-  color: orange;
-  height: 5vh;
-  width: 10vh;
-  min-width: 20vh;
-  text-align: center;
-  font-size: calc(0.5vw + 2vh);
+	background-color: teal;
+	color: orange;
+	height: 5vh;
+	width: 10vh;
+	min-width: 20vh;
+	text-align: center;
+	font-size: calc(0.5vw + 2vh);
 }
 
 #amongus {
