@@ -27,6 +27,22 @@ img {
 	height: 50px;
 }
 
+select {
+  background-color: teal;
+  color: orange;
+  height: 5vh;
+  width: 10vh;
+  min-width: 20vh;
+  text-align: center;
+  font-size: calc(0.5vw + 2vh);
+}
+
 #amongus {
 	max-height: 25vh;
+}
+
+#tries {
+	position: absolute;
+	right: 0;
+	top: 0;
 }
