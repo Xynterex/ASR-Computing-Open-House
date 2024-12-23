@@ -30,8 +30,6 @@ def game():
     global tries
     global game_table
     global row_col
-
-    tries += 1 # new turn
     
     return render_template("game.html", game_table=game_table, row_col=row_col, tries=tries)
 
@@ -42,7 +40,9 @@ def prep_game():
     global answer_table
     global game_table
     global row_col
+    global tries
 
+    tries = 0 # reset tries
     answer_list = image_names.copy() + image_names.copy()
     random.shuffle(answer_list)
 
