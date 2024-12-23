@@ -47,7 +47,8 @@ select {
 }
 
 #amongus {
-	max-height: 25vh;
+	min-height: 25vh;
+	min-width: 50vw;
 }
 
 #tries {
