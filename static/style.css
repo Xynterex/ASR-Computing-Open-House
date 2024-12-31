@@ -71,3 +71,15 @@ h1 {
 	right: 0;
 	top: 0;
 }
+
+.pairs {
+	background-color: teal;
+	color: orange;
+	height: 5vh;
+	width: 10vh;
+	min-width: 20vh;
+	text-align: center;
+	border-style: round;
+	border-color: black;
+	border-radius: 10px;
+}
