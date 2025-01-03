@@ -18,52 +18,57 @@
         -->
         <h2>Guess the coordinates of the two matching pairs!</h2>
         <table>
-            <tr>
-                <th></th>
-                <th>A</th>
-                <th>B</th>
-                <th>C</th>
-                <th>D</th>
-            </tr>
             {% for i in range(4) %}
             <tr>
-                <th>{{ i + 1 }}</th>
                 {% for j in range(4) %}
-                    {% if game_table[i][j] == None %}
-                        <td></td> <!-- fill in a colour using css-->
-                    {% else %}
-                        <td><img src="/static/{{ game_table[i][j] }}" alt="{{ game_table[i][j] }}"></td>
-                    {% endif %}
+                    <td id="{{ i ~ ',' ~ j }}" class="game-cell">
+                        {% if game_table[i][j] != None %}
+                            <img src="/static/{{ game_table[i][j] }}" alt="{{ game_table[i][j] }}">
+                        {% endif %}
+                    </td> <!-- fill in a colour using css-->
                 {% endfor %}
             </tr>
             {% endfor %}
         </table>
-
-        <!-- form to select coordinates guessed -->
-        <form action="/process_game" method="POST">
-            <table>
-                <tr> <!-- the labels -->
-                    <td><label for="guess1">Guess #1</label></td>
-                    <td><label for="guess2">Guess #2</label></td>
-                </tr>
-                <tr> <!-- the select tags -->
-                    <td>
-                    <select id="guess1" name="guess1" required>
-                        {% for coordinate in row_col %}
-                        <option value="{{ coordinate }}">{{ coordinate }}</option>
-                        {% endfor %}
-                    </select>
-                    </td>
-                    <td>
-                    <select id="guess2" name="guess2" required>
-                        {% for coordinate in row_col %}
-                        <option value="{{ coordinate }}">{{ coordinate }}</option>
-                        {% endfor %}
-                    </select>
-                    </td>
-                </tr>
-            </table>
-            <input type="submit" value="Guess!">
+        <script>
+            let coord1 = null
+            const cells = document.getElementsByClassName("game-cell")
+            function selected(i, j) {
+                const coord = "ABCD"[j] + (i+1).toString()
+                if (coord === coord1) {
+                    return false
+                }
+                console.log(coord)
+                if (coord1 == null) {
+                    coord1 = coord
+                    return true
+                } else {
+                    document.getElementById("guess1").value = coord1
+                    coord1 = null
+                    document.getElementById("guess2").value = coord
+                    const form = document.getElementById("form")
+                    form.submit()
+                    return true
+                }
+            }
+            for (let cell of cells) {
+                cell.onclick = () => {
+                    // Lazy hack to ensure we can't select already revealed cells
+                    if (cell.children.length != 0) {
+                        return
+                    }
+                    const [i, j] = cell.id.split(",")
+                    console.log(i, j)
+                    const suc = selected(Number.parseInt(i), Number.parseInt(j))
+                    if (suc) {
+                        cell.classList.add("cell-selected")
+                    }
+                }
+            }
+        </script>
+        <form method="post" action="{{ url_for('process_game') }}" id="form" hidden="hidden">
+            <input type="hidden" name="guess1" id="guess1">
+            <input type="hidden" name="guess2" id="guess2">
         </form>
         <h3 id="tries">Turn #{{ tries }}  </h3>
     </body>
