@@ -18,8 +18,16 @@
         -->
         <h2>Guess the coordinates of the two matching pairs!</h2>
         <table>
+            <tr>
+                <th></th>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+                <th>D</th>
+            </tr>
             {% for i in range(4) %}
             <tr>
+                <th>{{ i + 1 }}</th>
                 {% for j in range(4) %}
                     <td id="{{ i ~ ',' ~ j }}" class="game-cell">
                         {% if game_table[i][j] != None %}
