@@ -16,16 +16,16 @@
                 <th>D</th>
             </tr>
             {% for i in range(4) %}
-            <tr>
-                <th>{{ i + 1 }}</th>
-                {% for j in range(4) %}
-                    {% if expose_table[i][j] == None %}
-                        <td></td> <!-- fill in a colour using css-->
-                    {% else %}
-                        <td><img src="/static/{{ expose_table[i][j] }}" alt="{{ expose_table[i][j] }}"></td>
-                    {% endif %}
-                {% endfor %}
-            </tr>
+                <tr>
+                    <th>{{ i + 1 }}</th>
+                    {% for j in range(4) %}
+                        <td class="game-cell">
+                            {% if expose_table[i][j] != None %}
+                                <img src="/static/{{ expose_table[i][j] }}" alt="{{ expose_table[i][j] }}">
+                            {% endif %}
+                        </td> <!-- fill in a colour using css-->
+                    {% endfor %}
+                </tr>
             {% endfor %}
         </table>
 
