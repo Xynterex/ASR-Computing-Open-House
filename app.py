@@ -112,7 +112,7 @@ def expose():
     row2 = int(request.args.get("row2"))
     col2 = int(request.args.get("col2"))
     
-    expose_table = game_table.copy()
+    expose_table = [[item for item in row] for row in game_table]
     
     expose_table[row1][col1] = answer_table[row1][col1]
     expose_table[row2][col2] = answer_table[row2][col2]
